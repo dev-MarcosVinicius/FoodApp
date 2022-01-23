@@ -1,6 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
 import { useFonts } from 'expo-font';
 import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
@@ -10,6 +9,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import theme from './src/global/styles/theme';
 import { Background } from './src/components/Background';
+import { AuthProvider } from './src/hooks/auth';
+import { Routes } from './src/routes';
 
 export default function App() {
 
@@ -28,10 +29,14 @@ export default function App() {
     <NavigationContainer>
       <ThemeProvider theme={theme}>
         <Background>
-          <View>
-            <Text>Open up App.js to start working on your app!</Text>
-            <StatusBar style="auto" />
-          </View>
+          <StatusBar 
+            barStyle='light-content'
+            backgroundColor='transparent'
+            translucent
+          />
+          <AuthProvider>
+            <Routes/>
+          </AuthProvider>
         </Background>
       </ThemeProvider>
     </NavigationContainer>
