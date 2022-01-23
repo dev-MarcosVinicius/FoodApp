@@ -21,6 +21,12 @@ export default {
 
         background_primary: '#B22222',
         background_secondary: '#FA8072',
+
+        overlay: 'rgba(0,0,0,0.7)',
+        highlight: '#ABB1CC',
+        heading: '#DDE3F0',
+        line: '#991F36',
+        on: '#32BD50',
     },
 
     fonts: {
