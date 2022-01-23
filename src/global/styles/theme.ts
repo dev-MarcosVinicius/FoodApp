@@ -17,6 +17,9 @@ export default {
         
         text: '#969CB2',
         text_dark: '#000000',
-        background: '#F0F2F5'
+        background: '#F0F2F5',
+
+        background_primary: '#B22222',
+        background_secondary: '#FA8072',
     }
 }

@@ -6,11 +6,11 @@ import { ChildrenProps } from '../../shared/types/children.type';
 
 export function Background({ children }: ChildrenProps) {
 
-    const { secondary, primary } = theme.colors;
+    const { background_secondary, background_primary } = theme.colors;
 
     return (
         <Container
-            colors={[secondary, primary]}
+            colors={[background_secondary, background_primary]}
         >
             {children}
         </Container>
