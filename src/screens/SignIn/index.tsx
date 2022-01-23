@@ -1,13 +1,18 @@
 import React from 'react';
-import { Alert, ActivityIndicator } from 'react-native';
+import { Alert } from 'react-native';
+
 import { 
     Container,
     Content,
-    Image,
     Title,
-    Subtitle
+    Subtitle,
+    ButtonContainer,
+    SubtitleButton,
+    Separetor
  } from './styles';
 import { useAuth } from '../../hooks/auth';
+import { Button } from '../../components/Button';
+import { Background } from '../../components/Background';
 
 export function SignIn() {
     const { loading, signIn } = useAuth();
@@ -21,31 +26,39 @@ export function SignIn() {
     }
 
     return (
-        <Container>
-            <Content>
-                <Title>
-                    Conecte-se e
-                    Encontre seus
-                    pratos preferidos.
-                </Title>
+        <Background>
+            <Container>
+                <Content>
+                    <Title>
+                        Conecte-se e
+                        Encontre seus
+                        pratos preferidos.
+                    </Title>
 
-                <Subtitle>
-                    Faca seus pedidos de forma rapida {`\n`}
-                    no seu restaurante preferido.
-                </Subtitle>
+                    <Subtitle>
+                        Faca seus pedidos de forma rapida {`\n`}
+                        no seu restaurante preferido.
+                    </Subtitle>
+                </Content>
 
-                {/* {
-                    loading 
-                    ?
-                    <ActivityIndicator color={theme.colors.primary}/>
-                    :
-                    <ButtonIcon 
-                        title='Entrar com Discord'
-                        onPress={handleSignIn}
+                <ButtonContainer>
+                    <Button
+                        title='Acessar'
+                        // onPress={handleSignIn}
                     />
-                } */}
-                
-            </Content>
-        </Container>
+
+                    <Separetor/>
+
+                    <SubtitleButton>
+                        Nao possui cadastro?
+                    </SubtitleButton>
+
+                    <Button
+                        title='Cadastrar'
+                        // onPress={handleSignIn}
+                    />
+                </ButtonContainer>
+            </Container>
+        </Background>
     );
 }
