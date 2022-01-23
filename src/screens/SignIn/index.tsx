@@ -1,8 +1,13 @@
 import React from 'react';
-import { View, Text, Alert, ActivityIndicator } from 'react-native';
-import { styles } from './styles';
+import { Alert, ActivityIndicator } from 'react-native';
+import { 
+    Container,
+    Content,
+    Image,
+    Title,
+    Subtitle
+ } from './styles';
 import { useAuth } from '../../hooks/auth';
-import theme from '../../global/styles/theme';
 
 export function SignIn() {
     const { loading, signIn } = useAuth();
@@ -16,19 +21,18 @@ export function SignIn() {
     }
 
     return (
-        <View style={styles.container}>
+        <Container>
+            <Content>
+                <Title>
+                    Conecte-se e
+                    Encontre seus
+                    pratos preferidos.
+                </Title>
 
-            <View style={styles.content}>
-                <Text style={styles.title}>
-                    Conecte-se e{`\n`}
-                    Organize suas{`\n`}
-                    jogatinas
-                </Text>
-
-                <Text style={styles.subtitle}>
-                    Crie grupos para jogar seu games {`\n`}
-                    favoritos com seus amigos
-                </Text>
+                <Subtitle>
+                    Faca seus pedidos de forma rapida {`\n`}
+                    no seu restaurante preferido.
+                </Subtitle>
 
                 {/* {
                     loading 
@@ -41,7 +45,7 @@ export function SignIn() {
                     />
                 } */}
                 
-            </View>
-        </View>
+            </Content>
+        </Container>
     );
 }
