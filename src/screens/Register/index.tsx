@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import uuid from 'react-native-uuid';
+
 import { Button } from '../../components/Button';
+import { UsersServices } from '../../services/users';
 
 import { 
     Container,
@@ -15,22 +18,42 @@ import {
 } from './styles'
 
 export function Register() {
-    const [transactionType, setTransactionType] = useState('');
     const [fullName, setFullName] = useState('');
-    const [categoryModalOpen, setCategoryModalOpen] = useState(false);
+    const [email, setEmail] = useState('');
+    const [celPhone, setCelPhone] = useState('');
+    const [addres, setAddres] = useState('');
+    const [number, setNumber] = useState('');
+
+    function maskValidate(text: string, maskType: string) {
+        const maskTypes = {
+            'phone': (number) => {
+                return number;
+            }
+        },
+        formatText = maskTypes[maskType];
+
+        console.log("Text ", formatText(text))
+
+        setCelPhone(formatText(text))
+    }
+
+    async function registerUser() {
+        await UsersServices.registerUser({
+            id: uuid.v4().toString(),
+            fullName,
+            email,
+            celPhone,
+            addres,
+            number
+        })
+        .then(response => {
+            console.log('Deu bom')
+        })
+        .catch(error => {
+            console.log('Deu ruim')
+        })
+    }
     
-    function handleSeparetorBetweenelect(type: 'up' | 'down') {
-        setTransactionType(type);
-    }
-
-    function handleOpenSelectCategoryModal() {
-        setCategoryModalOpen(true);
-    }
-
-    function handleCloseSelectCategoryModal() {
-        setCategoryModalOpen(false);
-    }
-
     return (
         <Container>
             <Header>
@@ -46,7 +69,8 @@ export function Register() {
                             Nome Completo
                         </Subtitle>
                         <InputLarge
-                            placeholder="InputLarge"
+                            placeholder="Maria Carvalho de Azevedo"
+                            onChangeText={setFullName}
                         />
                     </SectionLarge>
 
@@ -55,16 +79,19 @@ export function Register() {
                             E-mail
                         </Subtitle>
                         <InputLarge
-                            placeholder="InputMedium"
+                            placeholder="exemplo@teste.com"
+                            onChangeText={setEmail}
                         />
                     </SectionLarge>
 
                     <SectionLarge>
                         <Subtitle>
-                            InputSmall
+                            Celular
                         </Subtitle>
                         <InputLarge
-                            placeholder="InputSmall"
+                            placeholder="5585912345678"
+                            onChangeText={(text) => maskValidate(text, 'phone')}
+                            keyboardType="numeric"
                         />
                     </SectionLarge>
 
@@ -74,7 +101,8 @@ export function Register() {
                                 Logradouro
                             </Subtitle>
                             <InputLarge
-                                placeholder="Logradouro"
+                                placeholder="Rua Paulo Saboia"
+                                onChangeText={setAddres}
                             />
                         </SectionMedium>
 
@@ -83,13 +111,17 @@ export function Register() {
                                 Numero
                             </Subtitle>
                             <InputLarge
-                                placeholder="Numero"
+                                placeholder="543"
+                                onChangeText={setNumber}
                             />
                         </SectionMedium>
                     </SeparetorBetween>
                 </Fields>
 
-                <Button title="Enviar"/>
+                <Button
+                    title="Cadastrar"
+                    onPress={registerUser}
+                />
             </Form>
         </Container>
     )

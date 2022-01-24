@@ -1,8 +1,8 @@
 export type UserProps = {
     id: string;
-    userame: string;
-    firstName: string;
-    avatar: string;
+    fullName: string;
     email: string;
-    token: string;
+    celPhone: string;
+    addres: string;
+    number: string;
 }

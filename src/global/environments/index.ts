@@ -1,5 +1,1 @@
-const apiUrl = 'http://localhost:3000/'
-
-export {
-    apiUrl
-}
+export const apiUrl = 'http://localhost:3000/';
