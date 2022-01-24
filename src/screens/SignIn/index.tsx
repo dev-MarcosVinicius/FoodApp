@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import { 
     Container,
@@ -16,6 +17,7 @@ import { Background } from '../../components/Background';
 
 export function SignIn() {
     const { loading, signIn } = useAuth();
+    const navigation = useNavigation();
 
     async function handleSignIn() {
         try {
@@ -23,6 +25,10 @@ export function SignIn() {
         } catch (error) {
             Alert.alert(error);
         }
+    }
+
+    function navigateTo(screen: string) {
+        navigation.navigate(screen);
     }
 
     return (
@@ -55,7 +61,7 @@ export function SignIn() {
 
                     <Button
                         title='Cadastrar'
-                        // onPress={handleSignIn}
+                        onPress={() => navigateTo('Register')}
                     />
                 </ButtonContainer>
             </Container>
