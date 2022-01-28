@@ -14,7 +14,8 @@ import {
     SeparetorBetween,
     InputLarge,
     SectionMedium,
-    SectionLarge
+    SectionLarge,
+    InputMasked
 } from './styles'
 
 export function Register() {
@@ -23,19 +24,6 @@ export function Register() {
     const [celPhone, setCelPhone] = useState('');
     const [addres, setAddres] = useState('');
     const [number, setNumber] = useState('');
-
-    function maskValidate(text: string, maskType: string) {
-        const maskTypes = {
-            'phone': (number) => {
-                return number;
-            }
-        },
-        formatText = maskTypes[maskType];
-
-        console.log("Text ", formatText(text))
-
-        setCelPhone(formatText(text))
-    }
 
     async function registerUser() {
         await UsersServices.registerUser({
@@ -88,10 +76,14 @@ export function Register() {
                         <Subtitle>
                             Celular
                         </Subtitle>
-                        <InputLarge
-                            placeholder="5585912345678"
-                            onChangeText={(text) => maskValidate(text, 'phone')}
+                        <InputMasked
+                            type={'cel-phone'}
+                            placeholder="(85) 99999-9999"
                             keyboardType="numeric"
+                            value={number}
+                            onChangeText={text => {
+                              setNumber(text);
+                            }}
                         />
                     </SectionLarge>
 
