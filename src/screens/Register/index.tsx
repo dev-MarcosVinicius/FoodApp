@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
 import uuid from 'react-native-uuid';
 
 import { Button } from '../../components/Button';
@@ -38,8 +39,23 @@ export function Register() {
             console.log('Deu bom')
         })
         .catch(error => {
-            console.log('Deu ruim')
+            Alert.alert("Erro.", "Nao foi possivel criar o seu usuario, por favor, tente novamente.");
         })
+    }
+
+    function validateFields() {
+        if (
+            !fullName.trim()
+            ||
+            !email.trim()
+            ||
+            !celPhone.trim()
+            ||
+            !addres.trim()
+            ||
+            !number.trim()
+        ) return Alert.alert("Campos Obrigatorios.", "Complete o cadastro preenchendo todos os campos.");
+        return registerUser();
     }
     
     return (
@@ -111,7 +127,7 @@ export function Register() {
 
                 <Button
                     title="Cadastrar"
-                    onPress={registerUser}
+                    onPress={validateFields}
                 />
             </Form>
         </Container>
