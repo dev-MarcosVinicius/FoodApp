@@ -67,6 +67,7 @@ export function Register() {
                             E-mail
                         </Subtitle>
                         <InputLarge
+                            value={email}
                             placeholder="exemplo@teste.com"
                             onChangeText={setEmail}
                         />
@@ -80,10 +81,8 @@ export function Register() {
                             type={'cel-phone'}
                             placeholder="(85) 99999-9999"
                             keyboardType="numeric"
-                            value={number}
-                            onChangeText={text => {
-                              setNumber(text);
-                            }}
+                            value={celPhone}
+                            onChangeText={setCelPhone}
                         />
                     </SectionLarge>
 
