@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Alert } from 'react-native';
 import uuid from 'react-native-uuid';
 
 import { Button } from '../../components/Button';
@@ -16,7 +15,10 @@ import {
     InputLarge,
     SectionMedium,
     SectionLarge,
-    InputMasked
+    InputMasked,
+    Modal,
+    ContainerNotify,
+    ContentNotify,
 } from './styles'
 
 export function Register() {
@@ -25,6 +27,7 @@ export function Register() {
     const [celPhone, setCelPhone] = useState('');
     const [addres, setAddres] = useState('');
     const [number, setNumber] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
 
     async function registerUser() {
         await UsersServices.registerUser({
@@ -39,7 +42,7 @@ export function Register() {
             console.log('Deu bom')
         })
         .catch(error => {
-            Alert.alert("Erro.", "Nao foi possivel criar o seu usuario, por favor, tente novamente.");
+            setModalVisible(true);
         })
     }
 
@@ -54,12 +57,30 @@ export function Register() {
             !addres.trim()
             ||
             !number.trim()
-        ) return Alert.alert("Campos Obrigatorios.", "Complete o cadastro preenchendo todos os campos.");
+        ) return setModalVisible(true);
         return registerUser();
+    }
+
+    function closeModal() {
+        setModalVisible(false);
     }
     
     return (
         <Container>
+            <Modal
+                transparent={true}
+                animationType="slide"
+                visible={modalVisible}
+                statusBarTranslucent
+                onRequestClose={closeModal}
+            >
+                <ContainerNotify>
+                    <ContentNotify>
+                        
+                    </ContentNotify>
+                </ContainerNotify>
+            </Modal>
+
             <Header>
                 <Title>
                     Cadastro

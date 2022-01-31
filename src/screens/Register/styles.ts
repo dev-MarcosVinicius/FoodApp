@@ -1,5 +1,6 @@
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
+import { GestureDetector } from "react-native-gesture-handler";
 import { TextInputMask } from 'react-native-masked-text'
 import { Input } from '../../components/Input';
 
@@ -68,4 +69,23 @@ export const Subtitle = styled.Text`
     font-size: ${RFValue(15)}px;
     text-align: left;
     font-family: ${({ theme }) => theme.fonts.title500};
+`;
+
+export const Modal = styled.Modal``;
+
+export const ContainerNotify = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: ${({ theme }) => theme.colors.overlay};
+`;
+
+export const ContentNotify = styled.View`
+    margin: 20px;
+    background-color: ${({ theme }) => theme.colors.background_secondary};
+    border-radius: 10px;
+    width: 80%;
+    height: 30%;
+    align-items: center;
+    elevation: 5
 `;
