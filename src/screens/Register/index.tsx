@@ -23,6 +23,8 @@ import { Alert } from '../../components/Alert';
 export function Register() {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [celPhone, setCelPhone] = useState('');
     const [addres, setAddres] = useState('');
     const [number, setNumber] = useState('');
@@ -33,6 +35,8 @@ export function Register() {
             id: uuid.v4().toString(),
             fullName,
             email,
+            password,
+            confirmPassword,
             celPhone,
             addres,
             number
@@ -56,6 +60,10 @@ export function Register() {
             !addres.trim()
             ||
             !number.trim()
+            ||
+            !password.trim()
+            ||
+            !confirmPassword.trim()
         ) return setModalVisible(true);
         return registerUser();
     }
@@ -107,6 +115,30 @@ export function Register() {
                             value={email}
                             placeholder="exemplo@teste.com"
                             onChangeText={setEmail}
+                        />
+                    </SectionLarge>
+
+                    <SectionLarge>
+                        <Subtitle>
+                            Senha
+                        </Subtitle>
+                        <InputLarge
+                            value={password}
+                            placeholder="*******"
+                            onChangeText={setPassword}
+                            secureTextEntry={true}
+                        />
+                    </SectionLarge>
+
+                    <SectionLarge>
+                        <Subtitle>
+                            Confirmar Senha
+                        </Subtitle>
+                        <InputLarge
+                            value={confirmPassword}
+                            placeholder="*******"
+                            onChangeText={setConfirmPassword}
+                            secureTextEntry={true}
                         />
                     </SectionLarge>
 
