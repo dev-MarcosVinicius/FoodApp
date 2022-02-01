@@ -17,9 +17,8 @@ import {
     SectionLarge,
     InputMasked,
     Modal,
-    ContainerNotify,
-    ContentNotify,
 } from './styles'
+import { Alert } from '../../components/Alert';
 
 export function Register() {
     const [fullName, setFullName] = useState('');
@@ -74,11 +73,12 @@ export function Register() {
                 statusBarTranslucent
                 onRequestClose={closeModal}
             >
-                <ContainerNotify>
-                    <ContentNotify>
-                        
-                    </ContentNotify>
-                </ContainerNotify>
+                <Alert
+                    title="Error!"
+                    description="Os campos (E-mail, Celular), sao obrigatorios."
+                    buttonTitle="Voltar"
+                    exec={closeModal}
+                />
             </Modal>
 
             <Header>

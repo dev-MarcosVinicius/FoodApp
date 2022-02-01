@@ -81,11 +81,12 @@ export const ContainerNotify = styled.View`
 `;
 
 export const ContentNotify = styled.View`
-    margin: 20px;
+    margin: ${RFValue(20)}px;
     background-color: ${({ theme }) => theme.colors.background_secondary};
-    border-radius: 10px;
+    border-radius: ${RFValue(10)}px;
     width: 80%;
     height: 30%;
     align-items: center;
-    elevation: 5
+    elevation: 5;
+    padding: ${RFValue(20)}px;
 `;
