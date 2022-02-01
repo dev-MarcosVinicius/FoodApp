@@ -9,21 +9,6 @@ export const Container = styled.View`
     background-color: ${({ theme }) => theme.colors.background};
 `;
 
-export const Header = styled.View`
-    background-color: ${({ theme }) => theme.colors.background_secondary};
-    width: 100%;
-    height: ${RFValue(90)}px;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 19px;
-`;
-
-export const Title = styled.Text`
-    color: ${({ theme }) => theme.colors.shape};
-    font-family: ${({ theme }) => theme.fonts.text500};
-    font-size: ${RFValue(18)}px;
-`;
-
 export const Form = styled.View`
     flex: 1;
     width: 100%;
@@ -72,21 +57,3 @@ export const Subtitle = styled.Text`
 `;
 
 export const Modal = styled.Modal``;
-
-export const ContainerNotify = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    background-color: ${({ theme }) => theme.colors.overlay};
-`;
-
-export const ContentNotify = styled.View`
-    margin: ${RFValue(20)}px;
-    background-color: ${({ theme }) => theme.colors.background_secondary};
-    border-radius: ${RFValue(10)}px;
-    width: 80%;
-    height: 30%;
-    align-items: center;
-    elevation: 5;
-    padding: ${RFValue(20)}px;
-`;

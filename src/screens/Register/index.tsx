@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import uuid from 'react-native-uuid';
+import { useNavigation } from '@react-navigation/core';
 
 import { Button } from '../../components/Button';
 import { UsersServices } from '../../services/users';
 
 import { 
     Container,
-    Header,
-    Title,
     Subtitle,
     Form,
     Fields,
@@ -19,6 +18,7 @@ import {
     Modal,
 } from './styles'
 import { Alert } from '../../components/Alert';
+import { Header } from '../../components/Header';
 
 export function Register() {
     const [fullName, setFullName] = useState('');
@@ -29,6 +29,7 @@ export function Register() {
     const [addres, setAddres] = useState('');
     const [number, setNumber] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
+    const navigation = useNavigation();
 
     async function registerUser() {
         await UsersServices.registerUser({
@@ -71,6 +72,10 @@ export function Register() {
     function closeModal() {
         setModalVisible(false);
     }
+
+    function navigateTo(screen: string) {
+        navigation.navigate(screen);
+    }
     
     return (
         <Container>
@@ -89,11 +94,11 @@ export function Register() {
                 />
             </Modal>
 
-            <Header>
-                <Title>
-                    Cadastro
-                </Title>
-            </Header>
+            <Header
+                leftIcon={true}
+                leftExec={() => navigateTo("SignIn")}
+                title="Cadastro"
+            />
 
             <Form>
                 <Fields>
