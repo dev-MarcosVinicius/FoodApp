@@ -7,6 +7,7 @@ import {
     Content
 } from './styles'
 import { HeaderProps } from '../../shared/types/header.type';
+import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 export function Header({ leftIcon = false, leftExec, title, rightIcon = false, rightExec }: HeaderProps) {
     return (
@@ -14,7 +15,9 @@ export function Header({ leftIcon = false, leftExec, title, rightIcon = false, r
             {
                 leftIcon
                 ?
-                <AntDesign name="arrowleft" size={24} color="white" onPress={leftExec}/>
+                <TouchableOpacity>
+                    <AntDesign name="arrowleft" size={24} color="white" onPress={leftExec}/>
+                </TouchableOpacity>
                 :
                 <Content/>
             }
@@ -26,7 +29,9 @@ export function Header({ leftIcon = false, leftExec, title, rightIcon = false, r
             {
                 rightIcon
                 ?
-                <AntDesign name="arrowleft" size={24} color="white" />
+                <TouchableOpacity>
+                    <AntDesign name="arrowleft" size={24} color="white" />
+                </TouchableOpacity>
                 :
                 <Content/>
             }
