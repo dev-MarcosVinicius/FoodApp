@@ -50,7 +50,7 @@ export function SignIn() {
                 <ButtonContainer>
                     <Button
                         title='Acessar'
-                        // onPress={handleSignIn}
+                        onPress={() => navigateTo('Login')}
                     />
 
                     <Separetor/>
