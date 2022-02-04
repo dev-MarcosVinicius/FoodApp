@@ -1,17 +1,26 @@
 import React from 'react';
-import { Text } from 'react-native';
 
 import { 
     Container,
+    Form,
+    Fields,
+    InputForm
 } from './styles';
 import { Background } from '../../components/Background';
+import { Button } from '../../components/Button';
 
 export function Login() {
 
     return (
         <Background>
             <Container>
-                <Text>Txtsdasdas</Text>
+                <Form>
+                    <Fields>
+                        <InputForm/>
+                        <InputForm/>
+                    </Fields>
+                    <Button title="Entrar"/>
+                </Form>
             </Container>
         </Background>
     );
