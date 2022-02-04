@@ -10,7 +10,7 @@ export const Container = styled.View`
 `;
 
 export const Form = styled.View`
-    align-items: center;
+    justify-content: space-between;
     background-color: "rgba(0,0,0,0.2)";
     border-radius: 10px;
     width: 90%;
@@ -20,9 +20,19 @@ export const Form = styled.View`
 `;
 
 export const Fields = styled.View`
-    flex: 1;
+    width: 100%;
+    margin-top: ${RFValue(-30)}px;
 `;
 
 export const InputForm = styled(Input)`
-    flex: 1;
+`;
+
+export const Title = styled.Text`
+    text-align: center;
+    color: ${({ theme }) => theme.colors.shape};
+    text-align: center;
+    font-size: ${RFValue(40)}px;
+    margin-top: ${RFValue(50)}px;
+    font-family: ${({ theme }) => theme.fonts.title700};
+    line-height: ${RFValue(40)}px;
 `;

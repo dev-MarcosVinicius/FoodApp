@@ -4,7 +4,8 @@ import {
     Container,
     Form,
     Fields,
-    InputForm
+    InputForm,
+    Title
 } from './styles';
 import { Background } from '../../components/Background';
 import { Button } from '../../components/Button';
@@ -15,9 +16,12 @@ export function Login() {
         <Background>
             <Container>
                 <Form>
+                    <Title>
+                        Acesse sua conta!
+                    </Title>
                     <Fields>
-                        <InputForm/>
-                        <InputForm/>
+                        <InputForm placeholder="Email"/>
+                        <InputForm placeholder="Senha"/>
                     </Fields>
                     <Button title="Entrar"/>
                 </Form>
