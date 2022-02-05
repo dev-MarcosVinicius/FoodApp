@@ -14,6 +14,7 @@ import {
     AuthorizationResponseProps
 } from '../shared/types/auth.type';
 import { UserProps } from "../shared/types/user.type";
+import { UsersServices } from "../services/users";
 
 export const AuthContext = createContext({} as AuthContextDataProps);
 
@@ -21,23 +22,16 @@ function AuthProvider({ children }: AuthProviderProps) {
     const [ user, setUser ] = useState<UserProps>({} as UserProps);
     const [ loading, setLoading ] = useState(false);
 
-    async function signIn() {
+    async function signIn(email: string, password: string) {
         try {
             setLoading(true);
 
-            const { type, params } = await AuthSession
-                .startAsync({ 'authUrl': '' }) as AuthorizationResponseProps;
+            const userData = await UsersServices.loginUser(email, password);
 
-            if (type === 'success' && !params.error) {
-                // const userInfo = await api.get('/users/@me');
+            if (userData)
+                await AsyncStorage.setItem('COLLECTION_USERS', JSON.stringify(userData));
 
-                await AsyncStorage.setItem('COLLECTION_USERS', JSON.stringify('userData'));
-                
-                setLoading(false);
-                
-            } else {
-                setLoading(false);
-            }
+            setLoading(false);
         } catch {
             throw new Error('Não foi possivel autenticar');
         }

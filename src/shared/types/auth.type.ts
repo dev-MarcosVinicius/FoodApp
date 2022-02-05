@@ -6,7 +6,7 @@ import { UserProps } from './user.type';
 export type AuthContextDataProps = {
     user: UserProps;
     loading: boolean;
-    signIn: () => Promise<void>;
+    signIn: (email: string, password: string) => Promise<void>;
 }
 
 export type AuthProviderProps = {
@@ -14,8 +14,5 @@ export type AuthProviderProps = {
 }
 
 export type AuthorizationResponseProps = AuthSession.AuthSessionResult & {
-    params: {
-        access_token?: string;
-        error?: string;
-    }
+    user: UserProps
 }

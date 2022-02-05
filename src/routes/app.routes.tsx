@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-// import { Home } from "../screens/home";
+import { Home } from "../screens/Home";
 // import { SignIn } from "../screens/signin";
 // import { AppointmentDetails } from "../screens/appointmentDetails";
 // import { AppointmentCreate } from "../screens/appointmentCreate";
@@ -10,14 +10,13 @@ const { Navigator, Screen } = createStackNavigator();
 export function AppRoutes() {
     return (
         <Navigator
-            // headerMode='none'
-            screenOptions={{cardStyle: {backgroundColor: 'transparent'}}}
+            screenOptions={{cardStyle: {backgroundColor: 'transparent'}, headerShown: false}}
         >
-            {/* <Screen
+            <Screen
                 name="Home"
                 component={Home}
             />
-            <Screen
+            {/* <Screen
                 name="AppointmentDetails"
                 component={AppointmentDetails}
             />
