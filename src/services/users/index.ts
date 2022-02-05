@@ -6,7 +6,7 @@ export class UsersServices {
         return api.post('users', userData);
     }
 
-    static loginUser(email: string, password: string): Promise<UserProps> {
+    static loginUser(email: string, password: string): Promise<any> {
         return api.post('auth/login', {email, password});
     }
 }

@@ -8,3 +8,12 @@ export type UserProps = {
     addres: string;
     number: string;
 }
+
+export type UserRequest = {
+    id: string;
+    addres: string;
+    celPhone: string;
+    email: string;
+    fullName: string;
+    number: string;
+}

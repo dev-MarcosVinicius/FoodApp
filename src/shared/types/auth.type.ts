@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 import * as AuthSession from "expo-auth-session";
 
-import { UserProps } from './user.type';
+import { UserProps, UserRequest } from './user.type';
 
 export type AuthContextDataProps = {
-    user: UserProps;
+    user: UserRequest;
     loading: boolean;
     signIn: (email: string, password: string) => Promise<void>;
 }

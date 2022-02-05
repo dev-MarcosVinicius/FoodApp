@@ -13,13 +13,13 @@ import {
     AuthProviderProps,
     AuthorizationResponseProps
 } from '../shared/types/auth.type';
-import { UserProps } from "../shared/types/user.type";
+import { UserProps, UserRequest } from "../shared/types/user.type";
 import { UsersServices } from "../services/users";
 
 export const AuthContext = createContext({} as AuthContextDataProps);
 
 function AuthProvider({ children }: AuthProviderProps) {
-    const [ user, setUser ] = useState<UserProps>({} as UserProps);
+    const [ user, setUser ] = useState<UserRequest>({} as UserRequest);
     const [ loading, setLoading ] = useState(false);
 
     async function signIn(email: string, password: string) {
@@ -28,8 +28,10 @@ function AuthProvider({ children }: AuthProviderProps) {
 
             const userData = await UsersServices.loginUser(email, password);
 
-            if (userData)
-                await AsyncStorage.setItem('COLLECTION_USERS', JSON.stringify(userData));
+            if (userData.status == 201 && userData.data) {
+                await AsyncStorage.setItem('COLLECTION_USERS', JSON.stringify(userData.data));
+                setUser(userData.data)
+            }
 
             setLoading(false);
         } catch {
