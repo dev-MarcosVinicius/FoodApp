@@ -1,5 +1,6 @@
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
+import { Feather } from '@expo/vector-icons';
 
 interface TitleProps {
     selected: boolean;
@@ -18,7 +19,7 @@ export const List = styled.FlatList.attrs(
 `;
 
 export const Title = styled.Text<TitleProps>`
-    color: ${({selected, theme}) => selected ? theme.colors.background_primary : theme.colors.background_secondary};
+    color: ${({theme}) => theme.colors.text_dark};
     font-size: ${RFValue(15)}px;
     text-align: center;
     font-family: ${({ theme }) => theme.fonts.title700};
@@ -52,4 +53,37 @@ export const ImageProduct = styled.ImageBackground.attrs(
     margin-left: ${RFValue(10)}px;
     margin-right: ${RFValue(10)}px;
     border-radius:  ${RFValue(8)}px;
+`;
+
+export const Fields = styled.View`
+    flex: 1;
+    margin-right: ${RFValue(10)}px;
+`;
+
+export const SuperiorFields = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+`;
+
+export const Price = styled.Text`
+    color: ${({theme}) => theme.colors.text_dark};
+    font-size: ${RFValue(22)}px;
+    text-align: right;
+    font-family: ${({ theme }) => theme.fonts.title700};
+    margin-top: ${RFValue(8)}px;
+`;
+
+export const PriceField = styled.View`
+    flex-direction: row;
+    justify-content: flex-end;
+`;
+
+export const IconPrice = styled(Feather).attrs(
+    props => ({
+        name: 'dollar-sign',
+        size: 22
+    })
+)`
+    margin-top: ${RFValue(10)}px;
+    color: ${({theme}) => theme.colors.on};
 `;

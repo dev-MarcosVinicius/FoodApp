@@ -7,7 +7,12 @@ import {
     Title,
     Item,
     Content,
-    ImageProduct
+    ImageProduct,
+    Fields,
+    SuperiorFields,
+    Price,
+    PriceField,
+    IconPrice
 } from './styles';
 import { ProductProps, ListProductProps } from '../../shared/types/list.type';
 
@@ -34,9 +39,23 @@ export function ProductList({data, onProductSelected}: ListProductProps) {
                                 source={{uri: 'https://reactjs.org/logo-og.png'}}
                                 resizeMode="cover"
                             />
-                            <Title>
-                                {item.title}
-                            </Title>
+                            
+                            <Fields>
+                                <SuperiorFields>
+                                    <Title>
+                                        {item.title}
+                                    </Title>
+
+                                    <PriceField>
+                                        <IconPrice/>
+                                        <Price>
+                                            {item.price}
+                                        </Price>
+                                    </PriceField>
+                                </SuperiorFields>
+
+                                
+                            </Fields>
                         </Content>
                     </Item>
                 )}

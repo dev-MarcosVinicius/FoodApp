@@ -17,7 +17,7 @@ export const List = styled.FlatList.attrs(
 )``;
 
 export const Title = styled.Text<TitleProps>`
-    color: ${({selected, theme}) => selected ? theme.colors.background_primary : theme.colors.background_secondary};
+    color: ${({selected, theme}) => selected ? theme.colors.text_dark : theme.colors.background_secondary};
     font-size: ${RFValue(15)}px;
     text-align: center;
     font-family: ${({ theme }) => theme.fonts.title700};
