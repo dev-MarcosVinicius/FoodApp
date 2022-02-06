@@ -5,7 +5,8 @@ import {
     List,
     SeparatorList,
     Title,
-    Item
+    Item,
+    Content
 } from './styles';
 import { CategoryProps, ListProps } from '../../shared/types/list.type';
 
@@ -30,9 +31,13 @@ export function ListHorizontalBar({data, onCategorySelected}: ListProps) {
                     <Item
                         onPress={() => handleSelectCategory(item)}
                     >
-                        <Title
+                        <Content
                             selected={selectedId == item.id}
-                        >{item.title}</Title>
+                        >
+                            <Title
+                                selected={selectedId == item.id}
+                            >{item.title}</Title>
+                        </Content>
                     </Item>
                 )}
             />

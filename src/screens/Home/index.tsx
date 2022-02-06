@@ -18,12 +18,12 @@ export function Home() {
         },
         {
             id: '2',
-            title: 'Comidas',
+            title: 'Bebidas',
             category: 'foods'
         },
         {
             id: '3',
-            title: 'Comidas',
+            title: 'Sobremesas',
             category: 'foods'
         },
         {
@@ -62,7 +62,7 @@ export function Home() {
             <Header
                 leftIcon={true}
                 leftIconName='shopping-bag'
-                title=''
+                title='Dona Marmita'
                 rightIcon={true}
                 rightIconName='user'
             />
@@ -72,8 +72,9 @@ export function Home() {
                 onCategorySelected={handleSelectCategory}
             />
 
-            
-            <Content/>
+            <Content>
+
+            </Content>
         </Container>
     );
 }
