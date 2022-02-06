@@ -13,8 +13,11 @@ export function Home() {
     return (
         <Container>
             <Header
+                leftIcon={true}
+                leftIconName='shopping-bag'
                 title=''
                 rightIcon={true}
+                rightIconName='user'
             />
 
             <Title>

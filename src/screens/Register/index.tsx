@@ -95,6 +95,7 @@ export function Register() {
             </Modal>
 
             <Header
+                leftIconName='arrow-left'
                 leftIcon={true}
                 leftExec={() => navigateTo("SignIn")}
                 title="Cadastro"

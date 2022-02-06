@@ -9,14 +9,22 @@ import {
 import { HeaderProps } from '../../shared/types/header.type';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export function Header({ leftIcon = false, leftExec, title, rightIcon = false, rightExec }: HeaderProps) {
+export function Header({
+    leftIcon = false,
+    leftIconName,
+    leftExec,
+    title,
+    rightIcon = false,
+    rightIconName,
+    rightExec
+}: HeaderProps) {
     return (
         <Container>
             {
                 leftIcon
                 ?
                 <TouchableOpacity>
-                    <Feather name="arrow-left" size={24} color="white" onPress={leftExec}/>
+                    <Feather name={leftIconName} size={24} color="white" onPress={leftExec}/>
                 </TouchableOpacity>
                 :
                 <Content/>
@@ -30,7 +38,7 @@ export function Header({ leftIcon = false, leftExec, title, rightIcon = false, r
                 rightIcon
                 ?
                 <TouchableOpacity>
-                    <Feather name="user" size={24} color="white" onPress={rightExec}/>
+                    <Feather name={rightIconName} size={24} color="white" onPress={rightExec}/>
                 </TouchableOpacity>
                 :
                 <Content/>
