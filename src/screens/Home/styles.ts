@@ -6,12 +6,8 @@ export const Container = styled.View`
     align-items: center;
 `;
 
-export const Title = styled.Text`
-    text-align: center;
-    color: ${({ theme }) => theme.colors.shape};
-    text-align: center;
-    font-size: ${RFValue(40)}px;
-    margin-top: ${RFValue(50)}px;
-    font-family: ${({ theme }) => theme.fonts.title700};
-    line-height: ${RFValue(40)}px;
+export const Content = styled.View`
+    flex: 1;
+    background-color: ${({ theme }) => theme.colors.background_secondary};
+    width: 100%;
 `;
