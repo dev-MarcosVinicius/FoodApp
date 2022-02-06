@@ -8,21 +8,18 @@ import {
     Item,
     Content
 } from './styles';
-import { CategoryProps, ListCategoryProps } from '../../shared/types/list.type';
+import { ProductProps, ListProductProps } from '../../shared/types/list.type';
 
-export function ListHorizontalBar({data, onCategorySelected}: ListCategoryProps) {
-    const [selectedId, setSelectedId] = useState(null);
+export function ProductList({data, onProductSelected}: ListProductProps) {
 
-    function handleSelectCategory(category: CategoryProps) {
-        setSelectedId(category.id)
-        onCategorySelected(category)
+    function handleSelectCategory(product: ProductProps) {
+        onProductSelected(product)
     }
 
     return (
         <Container>
             <List
                 data={data}
-                extraData={selectedId}
                 keyExtractor={item => item.id}
                 ItemSeparatorComponent={() => (
                     <SeparatorList/>
@@ -31,12 +28,10 @@ export function ListHorizontalBar({data, onCategorySelected}: ListCategoryProps)
                     <Item
                         onPress={() => handleSelectCategory(item)}
                     >
-                        <Content
-                            selected={selectedId == item.id}
-                        >
-                            <Title
-                                selected={selectedId == item.id}
-                            >{item.title}</Title>
+                        <Content>
+                            <Title>
+                                {item.title}
+                            </Title>
                         </Content>
                     </Item>
                 )}
