@@ -26,8 +26,7 @@ export const Title = styled.Text<TitleProps>`
     align-self: center;
 `;
 
-export const Item = styled.TouchableWithoutFeedback`
-`;
+export const Item = styled.TouchableWithoutFeedback``;
 
 export const SeparatorList = styled.View`
     border-width: 0.6px;

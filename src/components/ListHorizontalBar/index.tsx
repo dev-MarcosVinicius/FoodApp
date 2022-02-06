@@ -9,11 +9,12 @@ import {
 } from './styles';
 import { CategoryProps, ListProps } from '../../shared/types/list.type';
 
-export function ListHorizontalBar({data}: ListProps) {
+export function ListHorizontalBar({data, onCategorySelected}: ListProps) {
     const [selectedId, setSelectedId] = useState(null);
 
     function handleSelectCategory(category: CategoryProps) {
         setSelectedId(category.id)
+        onCategorySelected(category)
     }
 
     return (

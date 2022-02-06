@@ -6,6 +6,7 @@ import {
 } from './styles';
 import { Header } from '../../components/Header';
 import { ListHorizontalBar } from '../../components/ListHorizontalBar';
+import { CategoryProps } from '../../shared/types/list.type';
 
 export function Home() {
 
@@ -50,7 +51,11 @@ export function Home() {
             title: 'Comidas',
             category: 'foods'
         }
-    ]
+    ];
+
+    function handleSelectCategory(category: CategoryProps) {
+        console.log(category)
+    }
 
     return (
         <Container>
@@ -64,8 +69,10 @@ export function Home() {
 
             <ListHorizontalBar
                 data={data}
+                onCategorySelected={handleSelectCategory}
             />
 
+            
             <Content/>
         </Container>
     );
