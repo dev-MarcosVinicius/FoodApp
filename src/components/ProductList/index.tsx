@@ -6,7 +6,8 @@ import {
     SeparatorList,
     Title,
     Item,
-    Content
+    Content,
+    ImageProduct
 } from './styles';
 import { ProductProps, ListProductProps } from '../../shared/types/list.type';
 
@@ -29,6 +30,10 @@ export function ProductList({data, onProductSelected}: ListProductProps) {
                         onPress={() => handleSelectCategory(item)}
                     >
                         <Content>
+                            <ImageProduct
+                                source={{uri: 'https://reactjs.org/logo-og.png'}}
+                                resizeMode="cover"
+                            />
                             <Title>
                                 {item.title}
                             </Title>
