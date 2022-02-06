@@ -4,17 +4,22 @@ import {
     Container,
     Title
 } from './styles';
-import { Background } from '../../components/Background';
+import { Header } from '../../components/Header';
 
 export function Home() {
 
+
+
     return (
-        <Background>
-            <Container>
-                <Title>
-                    Acesse sua conta!
-                </Title>
-            </Container>
-        </Background>
+        <Container>
+            <Header
+                title=''
+                rightIcon={true}
+            />
+
+            <Title>
+                Acesse sua conta!
+            </Title>
+        </Container>
     );
 }

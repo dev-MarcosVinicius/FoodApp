@@ -1,5 +1,5 @@
 import React from 'react';
-import { AntDesign } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 import {
     Container,
@@ -7,7 +7,7 @@ import {
     Content
 } from './styles'
 import { HeaderProps } from '../../shared/types/header.type';
-import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export function Header({ leftIcon = false, leftExec, title, rightIcon = false, rightExec }: HeaderProps) {
     return (
@@ -16,7 +16,7 @@ export function Header({ leftIcon = false, leftExec, title, rightIcon = false, r
                 leftIcon
                 ?
                 <TouchableOpacity>
-                    <AntDesign name="arrowleft" size={24} color="white" onPress={leftExec}/>
+                    <Feather name="arrow-left" size={24} color="white" onPress={leftExec}/>
                 </TouchableOpacity>
                 :
                 <Content/>
@@ -30,7 +30,7 @@ export function Header({ leftIcon = false, leftExec, title, rightIcon = false, r
                 rightIcon
                 ?
                 <TouchableOpacity>
-                    <AntDesign name="arrowleft" size={24} color="white" />
+                    <Feather name="user" size={24} color="white" onPress={rightExec}/>
                 </TouchableOpacity>
                 :
                 <Content/>

@@ -4,11 +4,11 @@ import styled from "styled-components/native";
 export const Container = styled.View`
     background-color: ${({ theme }) => theme.colors.background_secondary};
     width: 100%;
-    height: ${RFValue(90)}px;
+    height: 10%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-top: ${RFValue(15)}px;
+    padding-top: ${RFValue(30)}px;
     padding-left: ${RFValue(19)}px;
     padding-right: ${RFValue(19)}px;
 `;
