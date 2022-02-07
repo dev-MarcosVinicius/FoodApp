@@ -11,8 +11,10 @@ import { Header } from '../../components/Header';
 import { ListHorizontalBar } from '../../components/ListHorizontalBar';
 import { CategoryProps, ProductProps } from '../../shared/types/list.type';
 import { ProductList } from '../../components/ProductList';
+import { useNavigation } from '@react-navigation/native';
 
 export function Home() {
+    const navigation = useNavigation();
 
     const categories = [
         {
@@ -130,7 +132,7 @@ export function Home() {
     }
 
     function handleSelectProduct(product: ProductProps) {
-        console.log(product)
+        navigation.navigate('Product', product);
     }
 
     return (
