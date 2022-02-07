@@ -3,26 +3,30 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
     flex: 1;
-    justify-content: center;
-    align-items: center;
 `;
 
-export const Form = styled.View`
-    justify-content: space-between;
-    background-color: "rgba(0,0,0,0.2)";
-    border-radius: 10px;
-    width: 90%;
+export const Content = styled.View`
+    background-color: ${({ theme }) => theme.colors.shape};
+    width: 100%;
     height: 50%;
-    opacity: 1;
-    padding: 10px;
+    padding-top: ${RFValue(10)}px;
 `;
 
-export const Title = styled.Text`
-    text-align: center;
-    color: ${({ theme }) => theme.colors.shape};
-    text-align: center;
-    font-size: ${RFValue(40)}px;
-    margin-top: ${RFValue(50)}px;
-    font-family: ${({ theme }) => theme.fonts.title700};
-    line-height: ${RFValue(40)}px;
+export const Description = styled.Text`
+    color: ${({ theme }) => theme.colors.text_dark};
+    font-size: ${RFValue(15)}px;
+    font-family: ${({ theme }) => theme.fonts.text400};
+    line-height: ${RFValue(21)}px;
+    padding-left: ${RFValue(4)}%;
+    padding-right: ${RFValue(4)}%;
+`;
+
+export const ImageProduct = styled.ImageBackground.attrs(
+    props => ({
+        borderRadius: 8
+    })
+)`
+    align-self: center;
+    height:  ${RFValue(40)}%;
+    width:  ${RFValue(80)}%;
 `;

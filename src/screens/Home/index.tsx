@@ -62,20 +62,21 @@ export function Home() {
         {
             id: "1",
             title: "Marmita M",
-            description: "Loresams japsdopm asdknpom p o op p opjoj",
-            price: 10.50
+            description: "Loresams japsdopm asjsakjbskdfbsdkjfd skdjfsd kfjs aishfpawoiehapwoe uoph ewpoufh ksdfaj fpsodj fpwoeirẃoeir pwoe riwpeor asdknpom p o op p opjoj",
+            price: 10.50,
+            imageUrl: 'https://st2.depositphotos.com/3957801/5642/i/600/depositphotos_56423065-stock-photo-bacon-burger.jpg'
         },
         {
             id: "2",
-            title: "Marmita M",
+            title: "Marmita P",
             description: "Loresams japsdopm asdknpom p o op p opjoj",
-            price: 10.50
+            price: 7.50
         },
         {
             id: "3",
-            title: "Marmita M",
+            title: "Marmita G",
             description: "Loresams japsdopm asdknpom p o op p opjoj",
-            price: 10.50
+            price: 8.00
         },
         {
             id: "4",

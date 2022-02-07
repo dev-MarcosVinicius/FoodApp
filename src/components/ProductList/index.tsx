@@ -39,7 +39,7 @@ export function ProductList({data, onProductSelected}: ListProductProps) {
                     >
                         <Content>
                             <ImageProduct
-                                source={{uri: 'https://reactjs.org/logo-og.png'}}
+                                source={{uri: item.imageUrl}}
                                 resizeMode="cover"
                             />
                             
