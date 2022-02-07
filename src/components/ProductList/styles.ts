@@ -26,7 +26,11 @@ export const Title = styled.Text<TitleProps>`
     margin-top: ${RFValue(10)}px;
 `;
 
-export const Item = styled.TouchableOpacity``;
+export const Item = styled.TouchableOpacity.attrs(
+    props => ({
+        activeOpacity: 0.7
+    })
+)``;
 
 export const SeparatorList = styled.View`
     border-width: ${RFValue(2)}px;

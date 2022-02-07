@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { 
     Container,
     List,
-    SeparatorList,
     Title,
     Item,
     Content
