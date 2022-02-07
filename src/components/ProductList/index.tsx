@@ -14,7 +14,8 @@ import {
     PriceField,
     IconPrice,
     MiddleFields,
-    SubTitle
+    SubTitle,
+    InferiorFields,
 } from './styles';
 import { ProductProps, ListProductProps } from '../../shared/types/list.type';
 
@@ -47,13 +48,6 @@ export function ProductList({data, onProductSelected}: ListProductProps) {
                                     <Title>
                                         {item.title}
                                     </Title>
-
-                                    <PriceField>
-                                        <IconPrice/>
-                                        <Price>
-                                            {item.price}
-                                        </Price>
-                                    </PriceField>
                                 </SuperiorFields>
 
                                 <MiddleFields>
@@ -61,6 +55,15 @@ export function ProductList({data, onProductSelected}: ListProductProps) {
                                         {item.description}
                                     </SubTitle>
                                 </MiddleFields>
+
+                                <InferiorFields>
+                                    <PriceField>
+                                        <IconPrice/>
+                                        <Price>
+                                            {item.price}
+                                        </Price>
+                                    </PriceField>
+                                </InferiorFields>
                             </Fields>
                         </Content>
                     </Item>

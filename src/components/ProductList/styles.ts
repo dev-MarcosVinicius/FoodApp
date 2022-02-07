@@ -40,6 +40,7 @@ export const Content = styled.View<TitleProps>`
     height: ${RFValue(120)}px;
     border-radius:  ${RFValue(8)}px;
     flex-direction: row;
+    justify-content: space-between;
 `;
 
 export const ImageProduct = styled.ImageBackground.attrs(
@@ -70,7 +71,7 @@ export const Price = styled.Text`
     font-size: ${RFValue(18)}px;
     text-align: right;
     font-family: ${({ theme }) => theme.fonts.text500};
-    margin-top: ${RFValue(8)}px;
+    margin-top: ${RFValue(20)}px;
 `;
 
 export const PriceField = styled.View`
@@ -84,7 +85,7 @@ export const IconPrice = styled(Feather).attrs(
         size: 20
     })
 )`
-    margin-top: ${RFValue(10)}px;
+    margin-top: ${RFValue(22)}px;
     color: ${({theme}) => theme.colors.on};
 `;
 
@@ -99,4 +100,9 @@ export const SubTitle = styled.Text`
     text-align: left;
     font-family: ${({ theme }) => theme.fonts.text400};
     margin-top: ${RFValue(10)}px;
+`;
+
+export const InferiorFields = styled.View`
+    flex-direction: row;
+    justify-content: flex-end;
 `;
