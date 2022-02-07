@@ -18,6 +18,7 @@ import {
     InferiorFields,
 } from './styles';
 import { ProductProps, ListProductProps } from '../../shared/types/list.type';
+import StringFormat from '../../shared/utils/string/format.util';
 
 export function ProductList({data, onProductSelected}: ListProductProps) {
 
@@ -52,7 +53,7 @@ export function ProductList({data, onProductSelected}: ListProductProps) {
 
                                 <MiddleFields>
                                     <SubTitle>
-                                        {item.description}
+                                        {StringFormat.substring(item.description, 50)}
                                     </SubTitle>
                                 </MiddleFields>
 
