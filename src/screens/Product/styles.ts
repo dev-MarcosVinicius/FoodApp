@@ -8,7 +8,7 @@ export const Container = styled.View`
 export const Content = styled.View`
     background-color: ${({ theme }) => theme.colors.shape};
     width: 100%;
-    height: 50%;
+    height: 60%;
     padding-top: ${RFValue(10)}px;
 `;
 
@@ -27,6 +27,13 @@ export const ImageProduct = styled.ImageBackground.attrs(
     })
 )`
     align-self: center;
-    height:  ${RFValue(40)}%;
-    width:  ${RFValue(80)}%;
+    height: 40%;
+    width: 93%;
+`;
+
+export const Section = styled.View`
+    height: 20%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 `;

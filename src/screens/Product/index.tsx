@@ -4,10 +4,12 @@ import {
     Container,
     Content,
     ImageProduct,
-    Description
+    Description,
+    Section
 } from './styles';
 import { Header } from '../../components/Header';
 import { useNavigation } from '@react-navigation/native';
+import StringFormat from '../../shared/utils/string/format.util';
 
 export function Product({route}) {
     const navigation = useNavigation();
@@ -38,8 +40,12 @@ export function Product({route}) {
                 />
 
                 <Description>
-                    {route.params.description}
+                    {StringFormat.substring(route.params.description, 300)}
                 </Description>
+
+                <Section>
+                    
+                </Section>
             </Content>
         </Container>
     );
