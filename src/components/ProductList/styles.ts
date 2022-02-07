@@ -22,7 +22,7 @@ export const Title = styled.Text<TitleProps>`
     color: ${({theme}) => theme.colors.text_dark};
     font-size: ${RFValue(15)}px;
     text-align: center;
-    font-family: ${({ theme }) => theme.fonts.title700};
+    font-family: ${({ theme }) => theme.fonts.text500};
     margin-top: ${RFValue(10)}px;
 `;
 
@@ -67,9 +67,9 @@ export const SuperiorFields = styled.View`
 
 export const Price = styled.Text`
     color: ${({theme}) => theme.colors.text_dark};
-    font-size: ${RFValue(22)}px;
+    font-size: ${RFValue(18)}px;
     text-align: right;
-    font-family: ${({ theme }) => theme.fonts.title700};
+    font-family: ${({ theme }) => theme.fonts.text500};
     margin-top: ${RFValue(8)}px;
 `;
 
@@ -81,9 +81,22 @@ export const PriceField = styled.View`
 export const IconPrice = styled(Feather).attrs(
     props => ({
         name: 'dollar-sign',
-        size: 22
+        size: 20
     })
 )`
     margin-top: ${RFValue(10)}px;
     color: ${({theme}) => theme.colors.on};
+`;
+
+export const MiddleFields = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+`;
+
+export const SubTitle = styled.Text`
+    color: ${({theme}) => theme.colors.text_dark};
+    font-size: ${RFValue(12)}px;
+    text-align: left;
+    font-family: ${({ theme }) => theme.fonts.text400};
+    margin-top: ${RFValue(10)}px;
 `;

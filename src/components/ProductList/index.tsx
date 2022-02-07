@@ -12,7 +12,9 @@ import {
     SuperiorFields,
     Price,
     PriceField,
-    IconPrice
+    IconPrice,
+    MiddleFields,
+    SubTitle
 } from './styles';
 import { ProductProps, ListProductProps } from '../../shared/types/list.type';
 
@@ -54,7 +56,11 @@ export function ProductList({data, onProductSelected}: ListProductProps) {
                                     </PriceField>
                                 </SuperiorFields>
 
-                                
+                                <MiddleFields>
+                                    <SubTitle>
+                                        {item.description}
+                                    </SubTitle>
+                                </MiddleFields>
                             </Fields>
                         </Content>
                     </Item>
