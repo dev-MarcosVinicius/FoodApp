@@ -14,10 +14,15 @@ export const List = styled.FlatList.attrs(
         horizontal: true,
         showsHorizontalScrollIndicator: false
     })
-)``;
+)`
+    background-color: ${({theme}) => theme.colors.background_secondary};
+    border-top-width: 1px
+    border-bottom-width: 1px
+    border-color: ${({theme}) => theme.colors.shape};
+`;
 
 export const Title = styled.Text<TitleProps>`
-    color: ${({selected, theme}) => selected ? theme.colors.text_dark : theme.colors.background_secondary};
+    color: ${({selected, theme}) => selected ? theme.colors.background_secondary : theme.colors.text_dark};
     font-size: ${RFValue(15)}px;
     text-align: center;
     font-family: ${({ theme }) => theme.fonts.title700};
@@ -26,13 +31,8 @@ export const Title = styled.Text<TitleProps>`
 
 export const Item = styled.TouchableWithoutFeedback``;
 
-export const SeparatorList = styled.View`
-    border-width: 0.6px;
-    border-color: ${({ theme }) => theme.colors.background_secondary};
-`;
-
 export const Content = styled.View<TitleProps>`
-    background-color: ${({selected, theme}) => selected ? theme.colors.heading : theme.colors.shape};
-    padding-left: 5px
-    padding-right: 5px    
+    background-color: ${({theme}) => theme.colors.shape};
+    padding-left: 5px;
+    padding-right: 5px;    
 `;

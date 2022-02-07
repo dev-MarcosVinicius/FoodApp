@@ -24,9 +24,6 @@ export function ListHorizontalBar({data, onCategorySelected}: ListCategoryProps)
                 data={data}
                 extraData={selectedId}
                 keyExtractor={item => item.id}
-                ItemSeparatorComponent={() => (
-                    <SeparatorList/>
-                )}
                 renderItem={({item}) => (
                     <Item
                         onPress={() => handleSelectCategory(item)}

@@ -26,7 +26,7 @@ export const Title = styled.Text<TitleProps>`
     margin-top: ${RFValue(10)}px;
 `;
 
-export const Item = styled.TouchableWithoutFeedback``;
+export const Item = styled.TouchableOpacity``;
 
 export const SeparatorList = styled.View`
     border-width: ${RFValue(2)}px;
