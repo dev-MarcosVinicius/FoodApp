@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { 
     Container,
     Content,
     ImageProduct,
     Description,
-    Section,
     UnitPrice,
-    TotalPrice
+    Footer
 } from './styles';
 import { Header } from '../../components/Header';
 import { useNavigation } from '@react-navigation/native';
 import StringFormat from '../../shared/utils/string/format.util';
+import { ButtonQuantity } from '../../components/ButtonQuantity';
 
 export function Product({route}) {
     const navigation = useNavigation();
+    const [quantity, setQuantity] = useState("1");
 
     function handleBackScreen() {
         navigation.goBack();
@@ -22,6 +23,22 @@ export function Product({route}) {
 
     function handleAvaliableSelected() {
         console.log('Avaliação');
+    }
+
+    function handleReduceQuantity() {
+        console.log('handleReduceQuantity');
+    }
+
+    function handleIncrementQuantity() {
+        console.log('handleIncrementQuantity');
+    }
+
+    function handleAddProduct() {
+        console.log('handleAddProduct');
+    }
+
+    function getTotalPrice() {
+        return Number(route.params.price) * Number(quantity);
     }
     return (
         <Container>
@@ -45,15 +62,17 @@ export function Product({route}) {
                     {StringFormat.substring(route.params.description, 300)}
                 </Description>
 
-                <Section>
-                    <UnitPrice>
-                        Valor Unitario: R$ 10.50
-                    </UnitPrice>
+                <UnitPrice>
+                    R$ {StringFormat.formatPrice(route.params.price)}
+                </UnitPrice>
 
-                    <TotalPrice>
-                        Total: R$ 21.00
-                    </TotalPrice>
-                </Section>
+                <Footer>
+                    <ButtonQuantity
+                        title='Adicionar'
+                        price={`${StringFormat.formatPrice(getTotalPrice())}`}
+                        quantity={`${quantity}`}
+                    />
+                </Footer>
             </Content>
         </Container>
     );

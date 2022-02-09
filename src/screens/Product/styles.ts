@@ -7,8 +7,7 @@ export const Container = styled.View`
 
 export const Content = styled.View`
     background-color: ${({ theme }) => theme.colors.shape};
-    width: 100%;
-    height: 100%;
+    flex: 1;
     padding-top: ${RFValue(10)}px;
 `;
 
@@ -40,9 +39,15 @@ export const Section = styled.View`
 
 export const UnitPrice = styled.Text`
     padding-left: ${RFValue(4)}%;
-    width: ${RFValue(90)}px;
+    padding-top: ${RFValue(6)}%;
+    color: ${({ theme }) => theme.colors.text_dark};
+    font-size: ${RFValue(15)}px;
+    font-family: ${({ theme }) => theme.fonts.text400};
 `;
 
-export const TotalPrice = styled.Text`
-    padding-right: ${RFValue(4)}%;
+export const Footer = styled.View`
+    flex: 1;
+    justify-content: flex-end;
+    align-self: flex-end;
+    padding: 20px;
 `;
