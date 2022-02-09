@@ -8,7 +8,7 @@ export const Container = styled.View`
 export const Content = styled.View`
     background-color: ${({ theme }) => theme.colors.shape};
     width: 100%;
-    height: 60%;
+    height: 100%;
     padding-top: ${RFValue(10)}px;
 `;
 
@@ -27,13 +27,22 @@ export const ImageProduct = styled.ImageBackground.attrs(
     })
 )`
     align-self: center;
-    height: 40%;
+    height: 30%;
     width: 93%;
 `;
 
 export const Section = styled.View`
-    height: 20%;
+    height: 30%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+`;
+
+export const UnitPrice = styled.Text`
+    padding-left: ${RFValue(4)}%;
+    width: ${RFValue(90)}px;
+`;
+
+export const TotalPrice = styled.Text`
+    padding-right: ${RFValue(4)}%;
 `;

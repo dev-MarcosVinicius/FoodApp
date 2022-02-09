@@ -5,7 +5,9 @@ import {
     Content,
     ImageProduct,
     Description,
-    Section
+    Section,
+    UnitPrice,
+    TotalPrice
 } from './styles';
 import { Header } from '../../components/Header';
 import { useNavigation } from '@react-navigation/native';
@@ -44,7 +46,13 @@ export function Product({route}) {
                 </Description>
 
                 <Section>
-                    
+                    <UnitPrice>
+                        Valor Unitario: R$ 10.50
+                    </UnitPrice>
+
+                    <TotalPrice>
+                        Total: R$ 21.00
+                    </TotalPrice>
                 </Section>
             </Content>
         </Container>
