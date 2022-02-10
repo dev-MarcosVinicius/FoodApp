@@ -18,10 +18,7 @@ import { ProductServices } from '../../services/products';
 export function Home() {
     const navigation = useNavigation();
     const [products, setProducts] = useState([]);
-    const [loadingProducts, changeLoadingProducts] = useReducer(
-        (state) => {return !state},
-        true
-    );
+    const [loadingProducts, setLoadingProducts] = useState(true);
 
     const categories = [
         {
@@ -77,11 +74,9 @@ export function Home() {
     async function getProducts() {
         const getProducts = await ProductServices.findAllProducts();
 
-        if (getProducts.status != 200) {
-
-        }
-
-        setProducts(getProducts.data);
+        if (getProducts.status == 200) setProducts(getProducts.data);
+        
+        setLoadingProducts(false)
     }
 
     useEffect(() => {
@@ -109,10 +104,16 @@ export function Home() {
                     <Title>Produtos</Title>
                 </ContainerTitle>
 
-                <ProductList
-                    data={products}
-                    onProductSelected={handleSelectProduct}
-                />
+                {
+                    loadingProducts
+                    ?
+                    <LoadingProduct/>
+                    :
+                    <ProductList
+                        data={products}
+                        onProductSelected={handleSelectProduct}
+                    />
+                }
             </Content>
         </Container>
     );

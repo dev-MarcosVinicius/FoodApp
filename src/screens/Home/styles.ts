@@ -2,6 +2,8 @@ import { RFValue } from "react-native-responsive-fontsize";
 import { Feather } from '@expo/vector-icons';
 import styled from "styled-components/native";
 
+const ShapeColor = ({ theme }) => theme.colors.shape;
+
 export const Container = styled.View`
     flex: 1;
     align-items: center;
@@ -38,8 +40,7 @@ export const IconProduct = styled(Feather).attrs(
 
 export const LoadingProduct = styled.ActivityIndicator.attrs(
     props => ({
-        size: "large"
+        size: "large",
+        color: "#FFFFFF"
     })
-)`
-    color: ${({ theme }) => theme.colors.shape};
-`;
+)``;

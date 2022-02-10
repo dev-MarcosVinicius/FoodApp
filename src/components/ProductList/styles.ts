@@ -78,6 +78,14 @@ export const Price = styled.Text`
     margin-top: ${RFValue(20)}px;
 `;
 
+export const ZeroProducts = styled.Text`
+    color: ${({theme}) => theme.colors.shape};
+    font-size: ${RFValue(15)}px;
+    text-align: center;
+    font-family: ${({ theme }) => theme.fonts.text500};
+    margin-top: ${RFValue(10)}px;
+`;
+
 export const PriceField = styled.View`
     flex-direction: row;
     justify-content: flex-end;
