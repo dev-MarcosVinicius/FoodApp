@@ -5,7 +5,8 @@ import {
     List,
     Title,
     Item,
-    Content
+    Content,
+    Section
 } from './styles';
 import { CategoryProps, ListCategoryProps } from '../../shared/types/list.type';
 
@@ -19,24 +20,26 @@ export function ListHorizontalBar({data, onCategorySelected}: ListCategoryProps)
 
     return (
         <Container>
-            <List
-                data={data}
-                extraData={selectedId}
-                keyExtractor={item => item.id}
-                renderItem={({item}) => (
-                    <Item
-                        onPress={() => handleSelectCategory(item)}
-                    >
-                        <Content
-                            selected={selectedId == item.id}
+            <Section>
+                <List
+                    data={data}
+                    extraData={selectedId}
+                    keyExtractor={item => item.id}
+                    renderItem={({item}) => (
+                        <Item
+                            onPress={() => handleSelectCategory(item)}
                         >
-                            <Title
+                            <Content
                                 selected={selectedId == item.id}
-                            >{item.title}</Title>
-                        </Content>
-                    </Item>
-                )}
-            />
+                            >
+                                <Title
+                                    selected={selectedId == item.id}
+                                >{item.title}</Title>
+                            </Content>
+                        </Item>
+                    )}
+                />
+            </Section>
         </Container>
     );
 }

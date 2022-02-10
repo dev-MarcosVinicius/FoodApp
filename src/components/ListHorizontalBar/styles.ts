@@ -7,7 +7,13 @@ interface TitleProps {
 
 export const Container = styled.View`
     height: 5%;
+    width: 100%;
+    flex-direction: row;
+    background-color: ${({theme}) => theme.colors.shape};
+    justify-content: center;
 `;
+
+export const Section = styled.View``;
 
 export const List = styled.FlatList.attrs(
     props => ({
@@ -15,7 +21,7 @@ export const List = styled.FlatList.attrs(
         showsHorizontalScrollIndicator: false
     })
 )`
-    background-color: ${({theme}) => theme.colors.background_secondary};
+    background-color: ${({theme}) => theme.colors.shape};
     border-top-width: 1px
     border-bottom-width: 1px
     border-color: ${({theme}) => theme.colors.shape};
