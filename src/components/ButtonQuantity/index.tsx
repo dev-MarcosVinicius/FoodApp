@@ -12,11 +12,18 @@ import {
 } from './styles';
 import { ButtonQuantityProps } from '../../shared/types/button.type';
 
-export function ButtonQuantity({ title, price, quantity }: ButtonQuantityProps) {
+export function ButtonQuantity({ 
+    title,
+    price,
+    quantity,
+    minusPress,
+    plusPress,
+    confirmPress 
+}: ButtonQuantityProps) {
     return (
         <Container>
             <SectionQuantity>
-                <Action>
+                <Action onPress={minusPress}>
                     <IconMinus/>
                 </Action>
 
@@ -24,12 +31,12 @@ export function ButtonQuantity({ title, price, quantity }: ButtonQuantityProps) 
                     {quantity}
                 </Quantity>
 
-                <Action>
+                <Action onPress={plusPress}>
                     <IconPlus/>
                 </Action>
             </SectionQuantity>
 
-            <Button>
+            <Button onPress={confirmPress}>
                 <Title>
                     {title}
                 </Title>

@@ -15,7 +15,7 @@ import { ButtonQuantity } from '../../components/ButtonQuantity';
 
 export function Product({route}) {
     const navigation = useNavigation();
-    const [quantity, setQuantity] = useState("1");
+    const [quantity, setQuantity] = useState(1);
 
     function handleBackScreen() {
         navigation.goBack();
@@ -26,11 +26,11 @@ export function Product({route}) {
     }
 
     function handleReduceQuantity() {
-        console.log('handleReduceQuantity');
+        setQuantity(quantity - 1);
     }
 
     function handleIncrementQuantity() {
-        console.log('handleIncrementQuantity');
+        setQuantity(quantity + 1);
     }
 
     function handleAddProduct() {
@@ -71,6 +71,9 @@ export function Product({route}) {
                         title='Adicionar'
                         price={`${StringFormat.formatPrice(getTotalPrice())}`}
                         quantity={`${quantity}`}
+                        minusPress={handleReduceQuantity}
+                        plusPress={handleIncrementQuantity}
+                        confirmPress={handleAddProduct}
                     />
                 </Footer>
             </Content>
