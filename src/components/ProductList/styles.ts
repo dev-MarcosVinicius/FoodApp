@@ -1,6 +1,7 @@
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 import { Feather } from '@expo/vector-icons';
+import FadeInFlatList from "../FadeInFlatList";
 
 interface TitleProps {
     selected: boolean;
@@ -10,7 +11,7 @@ export const Container = styled.View`
     margin-top:  ${RFValue(8)}px;
 `;
 
-export const List = styled.FlatList.attrs(
+export const List = styled(FadeInFlatList).attrs(
     props => ({
         showsHorizontalScrollIndicator: false
     })
