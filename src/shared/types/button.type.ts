@@ -8,4 +8,6 @@ export type ButtonQuantityProps = RectButtonProps & {
     title: string;
     quantity: string;
     price: string;
+    // minusPress: () => {}
+    // plusPress: () => {}
 }
