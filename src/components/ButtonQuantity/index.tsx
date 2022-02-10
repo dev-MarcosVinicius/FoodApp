@@ -23,8 +23,13 @@ export function ButtonQuantity({
     return (
         <Container>
             <SectionQuantity>
-                <Action onPress={minusPress}>
-                    <IconMinus/>
+                <Action 
+                    onPress={minusPress}
+                    disabled={Number(quantity) <= 1}
+                >
+                    <IconMinus
+                        disabled={Number(quantity) <= 1}
+                    />
                 </Action>
 
                 <Quantity>

@@ -37,10 +37,10 @@ export const Title = styled.Text`
 export const IconMinus = styled(Feather).attrs(
     props => ({
         name: "minus",
-        size: 24
+        size: 24,
     })
 )`
-    color: ${({ theme }) => theme.colors.background_secondary};
+    color: ${({ disabled, theme }) => disabled ? theme.colors.heading : theme.colors.background_secondary};
 `;
 
 export const IconPlus = styled(Feather).attrs(
