@@ -35,3 +35,11 @@ export const IconProduct = styled(Feather).attrs(
     color: ${({ theme }) => theme.colors.shape};
     margin-right: 5px;
 `;
+
+export const LoadingProduct = styled.ActivityIndicator.attrs(
+    props => ({
+        size: "large"
+    })
+)`
+    color: ${({ theme }) => theme.colors.shape};
+`;
