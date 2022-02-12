@@ -22,3 +22,12 @@ export const Title = styled.Text`
 export const Content = styled.View`
     width: ${RFValue(24)}px;
 `;
+
+export const PopUpIcon = styled.View`
+    height: 8px;
+    width: 8px;
+    background-color: ${({ theme }) => theme.colors.shape};
+    position: absolute;
+    border-radius: 5px;
+    right: 0px;
+`;

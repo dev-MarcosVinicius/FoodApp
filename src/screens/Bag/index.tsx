@@ -32,7 +32,6 @@ export function Bag() {
         let total = 0;
         for (const product of bag) {
             total += Number(product.price) * Number(product.quantity)
-            console.log('Total >> ', total)
         }
         return total;
     }

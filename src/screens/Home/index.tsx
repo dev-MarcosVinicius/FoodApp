@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useIsFocused } from '@react-navigation/native';
 
 import { 
     Container,
@@ -16,14 +17,17 @@ import { ProductList } from '../../components/ProductList';
 import { useNavigation } from '@react-navigation/native';
 import { ProductServices } from '../../services/products';
 import { CategoryServices } from '../../services/categories';
+import BagUtil from '../../shared/utils/bag/bag.util';
 
 export function Home() {
     const navigation = useNavigation();
+    const isFocused = useIsFocused();
     const [products, setProducts] = useState([]);
     const [filterProducts, setFilterProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [loadingCategories, setLoadingCategories] = useState(true);
+    const [popBag, setPopBag] = useState(false);
 
     async function handleSelectCategory(category: CategoryProps) {
         setLoadingProducts(true);
@@ -41,6 +45,11 @@ export function Home() {
 
     function handleOpenProfile() {
         navigation.navigate('Profile');
+    }
+
+    async function verifyBag() {
+        const items = await BagUtil.getStorage();
+        setPopBag(!!items);
     }
 
     async function getProducts() {
@@ -67,11 +76,16 @@ export function Home() {
         getCategories();
     }, [])
 
+    useEffect(() => {
+        verifyBag();
+    }, [isFocused])
+
     return (
         <Container>
             <Header
                 leftIcon={true}
                 leftIconName='shopping-bag'
+                leftIconPop={popBag}
                 leftExec={handleOpenBag}
                 title='Dona Marmita'
                 rightIcon={true}
