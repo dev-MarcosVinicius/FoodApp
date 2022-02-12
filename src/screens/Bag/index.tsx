@@ -25,7 +25,8 @@ export function Bag() {
 
     async function getProductsOnBag() {
         const items = await BagUtil.getStorage();
-        setBag(items);
+
+        if (items) setBag(items);
     }
 
     function getTotalPrice() {
