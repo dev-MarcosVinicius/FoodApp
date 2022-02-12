@@ -12,6 +12,7 @@ import { Header } from '../../components/Header';
 import { useNavigation } from '@react-navigation/native';
 import StringFormat from '../../shared/utils/string/format.util';
 import { ButtonQuantity } from '../../components/ButtonQuantity';
+import BagUtil from '../../shared/utils/bag/bag.util';
 
 export function Product({route}) {
     const navigation = useNavigation();
@@ -33,8 +34,13 @@ export function Product({route}) {
         setQuantity(quantity + 1);
     }
 
-    function handleAddProduct() {
-        console.log('handleAddProduct');
+    async function handleAddProduct() {
+        await BagUtil.setStorage({
+            ...route.params,
+            quantity
+        });
+
+        handleBackScreen();
     }
 
     function getTotalPrice() {
