@@ -13,10 +13,23 @@ export type ListProductProps = {
     onProductSelected: (product: ProductProps) => void;
 }
 
+export type ListBagProps = {
+    data: BagProps[];
+    onProductSelected: (product: BagProps) => void;
+}
+
 export type ProductProps = {
     id: string;
     title: string;
     description: string;
     price: number;
     imageUrl?: string;
+}
+
+export type BagProps = {
+    _id: string;
+    title: string;
+    price: number;
+    imageUrl?: string;
+    quantity: string;
 }
