@@ -6,6 +6,7 @@ import {
 } from './styles';
 import { Header } from '../../components/Header';
 import { useNavigation } from '@react-navigation/native';
+import { ProfileList } from '../../components/ProfileList';
 
 export function Profile() {
     const navigation = useNavigation();
@@ -14,7 +15,7 @@ export function Profile() {
         navigation.goBack();
     }
 
-    function handleSelectItemOnBag() {
+    function handleSelectItem() {
         console.log("Clicaram")
     }
 
@@ -37,12 +38,12 @@ export function Profile() {
             />
 
             <Content>
-                {/* <BagList
-                    data={bag}
-                    onProductSelected={handleSelectItemOnBag}
+                <ProfileList
+                    data={[]}
+                    onItemSelected={handleSelectItem}
                 />
 
-                <Footer>
+                {/* <Footer>
                     <BagButton
                         title='Continuar'
                         totalPrice={`${getTotalPrice()}`}

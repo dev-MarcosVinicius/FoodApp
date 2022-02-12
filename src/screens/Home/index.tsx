@@ -26,7 +26,9 @@ export function Home() {
     const [loadingCategories, setLoadingCategories] = useState(true);
 
     async function handleSelectCategory(category: CategoryProps) {
-        setFilterProducts(products.filter(product => product.category == category.title));
+        setLoadingProducts(true);
+        await setFilterProducts(products.filter(product => product.category == category.title));
+        setLoadingProducts(false);
     }
 
     function handleSelectProduct(product: ProductProps) {
