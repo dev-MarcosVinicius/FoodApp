@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { 
     Container,
@@ -6,7 +6,8 @@ import {
     Title,
     ContainerTitle,
     IconProduct,
-    LoadingProduct
+    LoadingProduct,
+    LoadingCategory
 } from './styles';
 import { Header } from '../../components/Header';
 import { ListHorizontalBar } from '../../components/ListHorizontalBar';
@@ -14,54 +15,14 @@ import { CategoryProps, ProductProps } from '../../shared/types/list.type';
 import { ProductList } from '../../components/ProductList';
 import { useNavigation } from '@react-navigation/native';
 import { ProductServices } from '../../services/products';
+import { CategoryServices } from '../../services/categories';
 
 export function Home() {
     const navigation = useNavigation();
     const [products, setProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
     const [loadingProducts, setLoadingProducts] = useState(true);
-
-    const categories = [
-        {
-            id: '1',
-            title: 'Comidas',
-            category: 'foods'
-        },
-        {
-            id: '2',
-            title: 'Bebidas',
-            category: 'foods'
-        },
-        {
-            id: '3',
-            title: 'Sobremesas',
-            category: 'foods'
-        },
-        {
-            id: '4',
-            title: 'Comidas',
-            category: 'foods'
-        },
-        {
-            id: '5',
-            title: 'Comidas',
-            category: 'foods'
-        },
-        {
-            id: '6',
-            title: 'Comidas',
-            category: 'foods'
-        },
-        {
-            id: '7',
-            title: 'Comidas',
-            category: 'foods'
-        },
-        {
-            id: '8',
-            title: 'Comidas',
-            category: 'foods'
-        }
-    ];
+    const [loadingCategories, setLoadingCategories] = useState(true);
 
     function handleSelectCategory(category: CategoryProps) {
         console.log(category)
@@ -79,8 +40,17 @@ export function Home() {
         setLoadingProducts(false)
     }
 
+    async function getCategories() {
+        const getCategories = await CategoryServices.findAllCategories();
+
+        if (getCategories.status == 200) setCategories(getCategories.data);
+        
+        setLoadingCategories(false)
+    }
+
     useEffect(() => {
         getProducts();
+        getCategories();
     }, [])
 
     return (
@@ -93,10 +63,17 @@ export function Home() {
                 rightIconName='user'
             />
 
-            <ListHorizontalBar
-                data={categories}
-                onCategorySelected={handleSelectCategory}
-            />
+            {
+                loadingCategories
+                ?
+                <LoadingCategory/>
+                :
+                <ListHorizontalBar
+                    data={categories}
+                    onCategorySelected={handleSelectCategory}
+                />
+            }
+
 
             <Content>
                 <ContainerTitle>
