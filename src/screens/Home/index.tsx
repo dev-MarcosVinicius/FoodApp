@@ -33,6 +33,10 @@ export function Home() {
         navigation.navigate('Product', product);
     }
 
+    function handleOpenBag() {
+        navigation.navigate('Bag');
+    }
+
     async function getProducts() {
         const getProducts = await ProductServices.findAllProducts();
 
@@ -62,6 +66,7 @@ export function Home() {
             <Header
                 leftIcon={true}
                 leftIconName='shopping-bag'
+                leftExec={handleOpenBag}
                 title='Dona Marmita'
                 rightIcon={true}
                 rightIconName='user'

@@ -2,9 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Home } from "../screens/Home";
 import { Product } from "../screens/Product";
-// import { SignIn } from "../screens/signin";
-// import { AppointmentDetails } from "../screens/appointmentDetails";
-// import { AppointmentCreate } from "../screens/appointmentCreate";
+import { Bag } from "../screens/Bag";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -21,10 +19,10 @@ export function AppRoutes() {
                 name="Product"
                 component={Product}
             />
-            {/* <Screen
-                name="AppointmentCreate"
-                component={AppointmentCreate}
-            /> */}
+            <Screen
+                name="Bag"
+                component={Bag}
+            />
         </Navigator>
     );
 }
