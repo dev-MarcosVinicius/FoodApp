@@ -14,7 +14,7 @@ export function ListHorizontalBar({data, onCategorySelected}: ListCategoryProps)
     const [selectedId, setSelectedId] = useState(null);
 
     function handleSelectCategory(category: CategoryProps) {
-        setSelectedId(category.id)
+        setSelectedId(category._id)
         onCategorySelected(category)
     }
 
@@ -24,16 +24,16 @@ export function ListHorizontalBar({data, onCategorySelected}: ListCategoryProps)
                 <List
                     data={data}
                     extraData={selectedId}
-                    keyExtractor={item => item.id}
+                    keyExtractor={item => item._id}
                     renderItem={({item}) => (
                         <Item
                             onPress={() => handleSelectCategory(item)}
                         >
                             <Content
-                                selected={selectedId == item.id}
+                                selected={selectedId == item._id}
                             >
                                 <Title
-                                    selected={selectedId == item.id}
+                                    selected={selectedId == item._id}
                                 >{item.title}</Title>
                             </Content>
                         </Item>

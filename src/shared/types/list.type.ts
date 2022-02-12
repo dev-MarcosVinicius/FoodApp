@@ -4,9 +4,8 @@ export type ListCategoryProps = {
 }
 
 export type CategoryProps = {
-    id: string;
+    _id: string;
     title: string;
-    category: string;
 }
 
 export type ListProductProps = {
