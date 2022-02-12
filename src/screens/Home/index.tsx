@@ -20,12 +20,13 @@ import { CategoryServices } from '../../services/categories';
 export function Home() {
     const navigation = useNavigation();
     const [products, setProducts] = useState([]);
+    const [filterProducts, setFilterProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [loadingCategories, setLoadingCategories] = useState(true);
 
-    function handleSelectCategory(category: CategoryProps) {
-        console.log(category)
+    async function handleSelectCategory(category: CategoryProps) {
+        setFilterProducts(products.filter(product => product.category == category.title));
     }
 
     function handleSelectProduct(product: ProductProps) {
@@ -35,8 +36,11 @@ export function Home() {
     async function getProducts() {
         const getProducts = await ProductServices.findAllProducts();
 
-        if (getProducts.status == 200) setProducts(getProducts.data);
-        
+        if (getProducts.status == 200) {
+            setProducts(getProducts.data);
+            setFilterProducts(getProducts.data)
+        }
+
         setLoadingProducts(false)
     }
 
@@ -87,7 +91,7 @@ export function Home() {
                     <LoadingProduct/>
                     :
                     <ProductList
-                        data={products}
+                        data={filterProducts}
                         onProductSelected={handleSelectProduct}
                     />
                 }
