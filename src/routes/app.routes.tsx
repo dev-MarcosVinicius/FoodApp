@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Home } from "../screens/Home";
 import { Product } from "../screens/Product";
 import { Bag } from "../screens/Bag";
+import { Profile } from "../screens/Profile";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -22,6 +23,10 @@ export function AppRoutes() {
             <Screen
                 name="Bag"
                 component={Bag}
+            />
+            <Screen
+                name="Profile"
+                component={Profile}
             />
         </Navigator>
     );

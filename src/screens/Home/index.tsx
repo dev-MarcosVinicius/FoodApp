@@ -37,6 +37,10 @@ export function Home() {
         navigation.navigate('Bag');
     }
 
+    function handleOpenProfile() {
+        navigation.navigate('Profile');
+    }
+
     async function getProducts() {
         const getProducts = await ProductServices.findAllProducts();
 
@@ -70,6 +74,7 @@ export function Home() {
                 title='Dona Marmita'
                 rightIcon={true}
                 rightIconName='user'
+                rightExec={handleOpenProfile}
             />
 
             {
