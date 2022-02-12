@@ -9,6 +9,7 @@ import { Header } from '../../components/Header';
 import { useNavigation } from '@react-navigation/native';
 import BagUtil from '../../shared/utils/bag/bag.util';
 import { BagList } from '../../components/BagList';
+import { BagButton } from '../../components/BagButton';
 
 export function Bag() {
     const navigation = useNavigation();
@@ -25,6 +26,15 @@ export function Bag() {
     async function getProductsOnBag() {
         const items = await BagUtil.getStorage();
         setBag(items);
+    }
+
+    function getTotalPrice() {
+        let total = 0;
+        for (const product of bag) {
+            total += Number(product.price) * Number(product.quantity)
+            console.log('Total >> ', total)
+        }
+        return total;
     }
 
     useEffect(() => {
@@ -47,7 +57,10 @@ export function Bag() {
                 />
 
                 <Footer>
-                    
+                    <BagButton
+                        title='Continuar'
+                        totalPrice={`${getTotalPrice()}`}
+                    />
                 </Footer>
             </Content>
         </Container>

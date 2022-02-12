@@ -14,6 +14,4 @@ export const Content = styled.View`
 export const Footer = styled.View`
     flex: 1;
     justify-content: flex-end;
-    align-self: flex-end;
-    padding: 20px;
 `;
