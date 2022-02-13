@@ -23,6 +23,7 @@ export default {
         background_secondary: '#FA8072',
 
         overlay: 'rgba(0,0,0,0.7)',
+        overlay_grey: 'rgba(105,105,105,0.7)',
         highlight: '#ABB1CC',
         heading: '#DDE3F0',
         line: '#991F36',

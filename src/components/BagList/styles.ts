@@ -84,7 +84,7 @@ export const Price = styled.Text`
 `;
 
 export const ZeroProducts = styled.Text`
-    color: ${({theme}) => theme.colors.shape};
+    color: ${({theme}) => theme.colors.background_secondary};
     font-size: ${RFValue(15)}px;
     text-align: center;
     font-family: ${({ theme }) => theme.fonts.text500};

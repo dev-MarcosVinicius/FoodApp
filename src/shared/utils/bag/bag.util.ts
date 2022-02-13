@@ -17,4 +17,15 @@ export default class BagUtil {
 
         return AsyncStorage.setItem(StorageCollections.BAG, JSON.stringify(newItems));
     }
+
+    static async removeStorage(data: BagStorage) {
+        const oldItems = await AsyncStorage.getItem(StorageCollections.BAG);
+        let newItems = [];
+
+        if (oldItems) {
+            newItems = JSON.parse(oldItems)
+            newItems = newItems.filter(item => item._id != data._id)
+            return AsyncStorage.setItem(StorageCollections.BAG, JSON.stringify(newItems));
+        }
+    }
 }
