@@ -10,7 +10,7 @@ export const ModalView = styled.View`
     top: 85%;
     margin-left: ${RFValue(5)}px;
     margin-right: ${RFValue(5)}px;
-    border-radius: ${RFValue(8)}px;
+    border-radius: ${RFValue(3)}px;
     background-color: ${({ theme }) => theme.colors.on};
     flex-direction: column;
 `;

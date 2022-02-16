@@ -11,16 +11,25 @@ import { NotifyProps } from '../../shared/types/alert.type';
 
 export function Notify({ title, modalVisible, closeModal }: NotifyProps) {
     const widthAnim = useRef(new Animated.Value(370)).current;
-    const fadeOut = () => {
+
+    function fadeOut() {
         Animated.timing(widthAnim, {
-          toValue: 0,
-          duration: 5000,
-          useNativeDriver: false
-        }).start();
-    };
+            toValue: 0,
+            duration: 5000,
+            useNativeDriver: false
+          }).start();
+    }
+
+    function fadeReset() {
+        Animated.timing(widthAnim, {
+            toValue: 370,
+            duration: 100,
+            useNativeDriver: false
+          }).start();
+    }
 
     useEffect(() => {
-        fadeOut()
+        modalVisible ? fadeOut() : fadeReset();
     }, [modalVisible])
 
     return (
@@ -53,7 +62,6 @@ export function Notify({ title, modalVisible, closeModal }: NotifyProps) {
 const styles = StyleSheet.create({
     fadingContainer: {
         height: 5,
-        width: 375,
         backgroundColor: "rgba(105,105,105,0.7)"
     },
-  });
+});

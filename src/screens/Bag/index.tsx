@@ -37,7 +37,7 @@ export function Bag() {
     function handleConfirmOrder() {
         setNotifyVisible(true);
 
-        setInterval(() => {
+        setTimeout(() => {
             setNotifyVisible(false);
         }, 5000)
     }
@@ -75,7 +75,7 @@ export function Bag() {
             />
 
             <Notify
-                title='Pedido Realizado!'
+                title='Enviando Pedido...'
                 modalVisible={notifyVisible}
                 closeModal={() => setNotifyVisible(!notifyVisible)}
             />
