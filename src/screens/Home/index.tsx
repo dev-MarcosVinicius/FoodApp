@@ -8,6 +8,7 @@ import {
     ContainerTitle,
     IconProduct,
     LoadingProduct,
+    LoadingCategory
 } from './styles';
 import { Header } from '../../components/Header';
 import { ListHorizontalBar } from '../../components/ListHorizontalBar';
@@ -25,6 +26,7 @@ export function Home() {
     const [filterProducts, setFilterProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loadingProducts, setLoadingProducts] = useState(true);
+    const [loadingCategories, setLoadingCategories] = useState(true);
     const [popBag, setPopBag] = useState(false);
 
     async function handleSelectCategory(category: CategoryProps) {
@@ -65,6 +67,8 @@ export function Home() {
         const getCategories = await CategoryServices.findAllCategories();
 
         if (getCategories.status == 200) setCategories(getCategories.data);
+        
+        setLoadingCategories(false)
     }
 
     useEffect(() => {
@@ -89,10 +93,16 @@ export function Home() {
                 rightExec={handleOpenProfile}
             />
 
-            <ListHorizontalBar
-                data={categories}
-                onCategorySelected={handleSelectCategory}
-            />
+            {
+                loadingCategories
+                ?
+                <LoadingCategory/>
+                :
+                <ListHorizontalBar
+                    data={categories}
+                    onCategorySelected={handleSelectCategory}
+                />
+            }
 
 
             <Content>

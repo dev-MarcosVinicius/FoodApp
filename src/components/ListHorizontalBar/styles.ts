@@ -42,10 +42,3 @@ export const Content = styled.View<TitleProps>`
     padding-left: 5px;
     padding-right: 5px;    
 `;
-
-export const LoadingCategory = styled.ActivityIndicator.attrs(
-    props => ({
-        size: "large",
-        color: "#FA8072"
-    })
-)``;
