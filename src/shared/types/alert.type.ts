@@ -10,3 +10,9 @@ export type AlertRemoveBagProps = {
     execRemove: () => void;
     closeModal: () => void;
 }
+
+export type NotifyProps = {
+    title: string;
+    modalVisible: boolean;
+    closeModal: () => void;
+}

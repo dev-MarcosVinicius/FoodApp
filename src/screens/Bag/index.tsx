@@ -12,12 +12,14 @@ import { BagList } from '../../components/BagList';
 import { BagButton } from '../../components/BagButton';
 import { BagStorage } from '../../shared/types/bag.type';
 import { AlertRemoveBag } from '../../components/AlertRemoveBag';
+import { Notify } from '../../components/Notify';
 
 export function Bag() {
     const navigation = useNavigation();
     const [bag, setBag] = useState([]);
     const [product, setProduct] = useState<BagStorage>();
     const [modalVisible, setModalVisible] = useState(false);
+    const [notifyVisible, setNotifyVisible] = useState(false);
 
     function closeModal() {
         setModalVisible(false);
@@ -33,7 +35,11 @@ export function Bag() {
     }
 
     function handleConfirmOrder() {
-        
+        setNotifyVisible(true);
+
+        setInterval(() => {
+            setNotifyVisible(false);
+        }, 5000)
     }
 
     async function handleConfirmRemove() {
@@ -66,6 +72,12 @@ export function Bag() {
                 modalVisible={modalVisible}
                 closeModal={closeModal}
                 execRemove={handleConfirmRemove}
+            />
+
+            <Notify
+                title='Pedido Realizado!'
+                modalVisible={notifyVisible}
+                closeModal={() => setNotifyVisible(!notifyVisible)}
             />
 
             <Header
