@@ -4,3 +4,9 @@ export type AlertProps = {
     buttonTitle: string;
     exec: () => void;
 }
+
+export type AlertRemoveBagProps = {
+    modalVisible: boolean;
+    execRemove: () => void;
+    closeModal: () => void;
+}

@@ -19,8 +19,8 @@ export default {
         text_dark: '#000000',
         background: '#F0F2F5',
 
-        background_primary: '#B22222',
-        background_secondary: '#FA8072',
+        background_primary: '#5636F4',
+        background_secondary: '#5636D3',
 
         overlay: 'rgba(0,0,0,0.7)',
         overlay_grey: 'rgba(105,105,105,0.7)',

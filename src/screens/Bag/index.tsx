@@ -3,18 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { 
     Container,
     Content,
-    Footer,
-    Modal,
-    ModalView,
-    Description
+    Footer
 } from './styles';
 import { Header } from '../../components/Header';
 import { useNavigation } from '@react-navigation/native';
 import BagUtil from '../../shared/utils/bag/bag.util';
 import { BagList } from '../../components/BagList';
 import { BagButton } from '../../components/BagButton';
-import { ButtonModal } from '../../components/ButtonModal';
 import { BagStorage } from '../../shared/types/bag.type';
+import { AlertRemoveBag } from '../../components/AlertRemoveBag';
 
 export function Bag() {
     const navigation = useNavigation();
@@ -30,10 +27,13 @@ export function Bag() {
         navigation.goBack();
     }
 
-
     function handleSelectItemOnBag(product) {
         setModalVisible(true);
         setProduct(product);
+    }
+
+    function handleConfirmOrder() {
+        
     }
 
     async function handleConfirmRemove() {
@@ -62,24 +62,11 @@ export function Bag() {
 
     return (
         <Container>
-            <Modal
-                transparent={true}
-                animationType="slide"
-                visible={modalVisible}
-                statusBarTranslucent
-                onRequestClose={closeModal}
-            >
-                <ModalView>
-                    <Description>
-                        Deseja realmente remover o produto da Sacola?
-                    </Description>
-
-                    <ButtonModal
-                        title='Confirmar'
-                        onPress={handleConfirmRemove}
-                    />
-                </ModalView>
-            </Modal>
+            <AlertRemoveBag
+                modalVisible={modalVisible}
+                closeModal={closeModal}
+                execRemove={handleConfirmRemove}
+            />
 
             <Header
                 leftIcon={true}
@@ -98,6 +85,7 @@ export function Bag() {
                     <BagButton
                         title='Continuar'
                         totalPrice={`${getTotalPrice()}`}
+                        onPress={handleConfirmOrder}
                     />
                 </Footer>
             </Content>
