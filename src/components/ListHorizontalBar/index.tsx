@@ -6,7 +6,8 @@ import {
     Title,
     Item,
     Content,
-    Section
+    Section,
+    LoadingCategory
 } from './styles';
 import { CategoryProps, ListCategoryProps } from '../../shared/types/list.type';
 
@@ -25,6 +26,9 @@ export function ListHorizontalBar({data, onCategorySelected}: ListCategoryProps)
                     data={data}
                     extraData={selectedId}
                     keyExtractor={item => item._id}
+                    ListEmptyComponent={() => (
+                        <LoadingCategory/>
+                    )}
                     renderItem={({item}) => (
                         <Item
                             onPress={() => handleSelectCategory(item)}

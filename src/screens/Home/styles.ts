@@ -44,10 +44,3 @@ export const LoadingProduct = styled.ActivityIndicator.attrs(
         color: "#FFFFFF"
     })
 )``;
-
-export const LoadingCategory = styled.ActivityIndicator.attrs(
-    props => ({
-        size: "large",
-        color: "#FA8072"
-    })
-)``;
