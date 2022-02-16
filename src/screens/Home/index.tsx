@@ -87,7 +87,7 @@ export function Home() {
                 leftIconName='shopping-bag'
                 leftIconPop={popBag}
                 leftExec={handleOpenBag}
-                title={`${popBag}`}
+                title='Dona Marmita'
                 rightIcon={true}
                 rightIconName='user'
                 rightExec={handleOpenProfile}
