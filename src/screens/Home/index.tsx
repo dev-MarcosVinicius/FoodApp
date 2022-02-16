@@ -49,7 +49,7 @@ export function Home() {
 
     async function verifyBag() {
         const items = await BagUtil.getStorage();
-        setPopBag(!!items);
+        setPopBag(!!items.length);
     }
 
     async function getProducts() {
@@ -87,7 +87,7 @@ export function Home() {
                 leftIconName='shopping-bag'
                 leftIconPop={popBag}
                 leftExec={handleOpenBag}
-                title='Dona Marmita'
+                title={`${popBag}`}
                 rightIcon={true}
                 rightIconName='user'
                 rightExec={handleOpenProfile}
