@@ -23,7 +23,7 @@ export function Product({route}) {
     }
 
     function handleAvaliableSelected() {
-        navigation.navigate("Avaliable")
+        navigation.navigate("Avaliable", route.params)
     }
 
     function handleReduceQuantity() {
