@@ -23,7 +23,7 @@ export function Product({route}) {
     }
 
     function handleAvaliableSelected() {
-        console.log('Avaliação');
+        navigation.navigate("Avaliable")
     }
 
     function handleReduceQuantity() {

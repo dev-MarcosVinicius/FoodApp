@@ -4,6 +4,7 @@ import { Home } from "../screens/Home";
 import { Product } from "../screens/Product";
 import { Bag } from "../screens/Bag";
 import { Profile } from "../screens/Profile";
+import { Avaliable } from "../screens/Avaliable";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -27,6 +28,10 @@ export function AppRoutes() {
             <Screen
                 name="Profile"
                 component={Profile}
+            />
+            <Screen
+                name="Avaliable"
+                component={Avaliable}
             />
         </Navigator>
     );
