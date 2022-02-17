@@ -5,13 +5,11 @@ import React,
     useState,
     useEffect
 } from "react";
-import * as AuthSession from "expo-auth-session";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {
     AuthContextDataProps,
     AuthProviderProps,
-    AuthorizationResponseProps
 } from '../shared/types/auth.type';
 import { UserProps, UserRequest } from "../shared/types/user.type";
 import { UsersServices } from "../services/users";
