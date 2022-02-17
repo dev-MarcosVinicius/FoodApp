@@ -1,4 +1,5 @@
 import React from 'react';
+import { Header } from '../../components/Header';
 
 import { 
     Container,
@@ -8,6 +9,9 @@ import {
 export function Avaliable({route}) {
     return (
         <Container>
+            <Header
+                title='Avaliação'
+            />
             <Description>
                 {route.params.title}
             </Description>
